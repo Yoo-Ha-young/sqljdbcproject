@@ -37,23 +37,29 @@ public class Myproduct {
 
         case 1 : // 1.주문정보입력		
 		// 사용자 입력
+        	System.out.println();
 		System.out.println("상품 id 입력"); id = sc.nextInt();
-		System.out.println("상품명 입력");	name = sc.nextLine();
-		System.out.println("주문날짜 입력"); updated_at = sc.nextLine();
-		System.out.println("메모 입력"); contents = sc.nextLine();
+		System.out.println();
+		System.out.println("상품명 입력");	name = sc.next();
+		System.out.println();
+		System.out.println("주문날짜 입력"); updated_at = sc.next();
+		System.out.println();
+		System.out.println("메모 입력"); contents = sc.next();
+		System.out.println();
 		System.out.println("가격 입력"); price = sc.nextInt();
-
+		System.out.println();
+		System.out.println("주문자명 입력"); customer = sc.next();
 		
 		// sql 연동
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = con.prepareStatement("insert into produ values(?,?,?,?,?)");
+			pstmt = con.prepareStatement("insert into product values(?,?,?,?,?,?)");
 			pstmt.setInt(1, id);
 			pstmt.setString(2, name);
 			pstmt.setString(3, updated_at);
 			pstmt.setString(4, contents);
 			pstmt.setInt(5, price);
-			
+			pstmt.setString(6, customer);
 			int result = pstmt.executeUpdate();
 			if (result > 0)
 				System.out.println("삽입 성공");
