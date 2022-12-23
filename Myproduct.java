@@ -15,7 +15,7 @@ public class Myproduct {
         PreparedStatement pst = null;
 		Scanner sc = new Scanner(System.in);
 		Statement stmt = con.createStatement();
-		// º¯¼ö ¼±¾ğ
+		// ë³€ìˆ˜ ì„ ì–¸
 		int id = 0;
 		String name = "";
 		String updated_at = "";
@@ -27,24 +27,24 @@ public class Myproduct {
         String customer = "";
 		
         
-		System.out.println("===============ÁÖ¹®Á¤º¸ ¼öÁ¤ ¹× Á¶È¸ ÇÁ·Î±×·¥===============");
+		System.out.println("===============ì£¼ë¬¸ì •ë³´ ìˆ˜ì • ë° ì¡°íšŒ í”„ë¡œê·¸ë¨===============");
 		 while(true) {
-	            System.out.println("1.ÁÖ¹®Á¤º¸ÀÔ·Â 2.±¸¸ÅÀÚÁ¶È¸ 3.ÁÖ¹®Ãë¼Ò(»èÁ¦) 4.Á¤º¸¼öÁ¤ 5.ÇÁ·Î±×·¥Á¾·á");
-	            System.out.print("¸Ş´º ¼±ÅÃ >> ");
+	            System.out.println("1.ì£¼ë¬¸ì •ë³´ì…ë ¥ 2.êµ¬ë§¤ìì¡°íšŒ 3.ì£¼ë¬¸ì·¨ì†Œ(ì‚­ì œ) 4.ì •ë³´ìˆ˜ì • 5.í”„ë¡œê·¸ë¨ì¢…ë£Œ");
+	            System.out.print("ë©”ë‰´ ì„ íƒ >> ");
 	            menu = sc.nextInt();
 	            		
         switch(menu) {
 
-        case 1 : // 1.ÁÖ¹®Á¤º¸ÀÔ·Â		
-		// »ç¿ëÀÚ ÀÔ·Â
-		System.out.println("»óÇ° id ÀÔ·Â"); id = sc.nextInt();
-		System.out.println("»óÇ°¸í ÀÔ·Â");	name = sc.nextLine();
-		System.out.println("ÁÖ¹®³¯Â¥ ÀÔ·Â"); updated_at = sc.nextLine();
-		System.out.println("¸Ş¸ğ ÀÔ·Â"); contents = sc.nextLine();
-		System.out.println("°¡°İ ÀÔ·Â"); price = sc.nextInt();
+        case 1 : // 1.ì£¼ë¬¸ì •ë³´ì…ë ¥		
+		// ì‚¬ìš©ì ì…ë ¥
+		System.out.println("ìƒí’ˆ id ì…ë ¥"); id = sc.nextInt();
+		System.out.println("ìƒí’ˆëª… ì…ë ¥");	name = sc.nextLine();
+		System.out.println("ì£¼ë¬¸ë‚ ì§œ ì…ë ¥"); updated_at = sc.nextLine();
+		System.out.println("ë©”ëª¨ ì…ë ¥"); contents = sc.nextLine();
+		System.out.println("ê°€ê²© ì…ë ¥"); price = sc.nextInt();
 
 		
-		// sql ¿¬µ¿
+		// sql ì—°ë™
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = con.prepareStatement("insert into produ values(?,?,?,?,?)");
@@ -56,27 +56,27 @@ public class Myproduct {
 			
 			int result = pstmt.executeUpdate();
 			if (result > 0)
-				System.out.println("»ğÀÔ ¼º°ø");
+				System.out.println("ì‚½ì… ì„±ê³µ");
 			else
-				System.out.println("»ğÀÔ ½ÇÆĞ");
+				System.out.println("ì‚½ì… ì‹¤íŒ¨");
 		} catch (SQLException e) {
-			e.printStackTrace(); // ¿¡·¯ÀÇ ¹ß»ı±Ù¿øÁö¸¦ Ã£¾Æ¼­ ´Ü°èº°·Î ¿¡·¯¸¦ Ãâ·ÂÇÕ´Ï´Ù.
+			e.printStackTrace(); // ì—ëŸ¬ì˜ ë°œìƒê·¼ì›ì§€ë¥¼ ì°¾ì•„ì„œ ë‹¨ê³„ë³„ë¡œ ì—ëŸ¬ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
 		} finally {
 
 			if (pstmt != null)
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace(); // ¿¡·¯ÀÇ ¹ß»ı±Ù¿øÁö¸¦ Ã£¾Æ¼­ ´Ü°èº°·Î ¿¡·¯¸¦ Ãâ·ÂÇÕ´Ï´Ù.
+					e.printStackTrace(); // ì—ëŸ¬ì˜ ë°œìƒê·¼ì›ì§€ë¥¼ ì°¾ì•„ì„œ ë‹¨ê³„ë³„ë¡œ ì—ëŸ¬ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
 				}
 		}
-        System.out.println(); break; // case 1 Á¾·á
+        System.out.println(); break; // case 1 ì¢…ë£Œ
         
    
-        // 2. ÁÖ¹®ÀÚ Á¶È¸
+        // 2. ì£¼ë¬¸ì ì¡°íšŒ
         case 2 : 
-        	System.out.println(menu+"¹ø ¼±ÅÃ");
-            System.out.print("ÁÖ¹®ÀÚ¸í ÀÔ·Â : ");
+        	System.out.println(menu+"ë²ˆ ì„ íƒ");
+            System.out.print("ì£¼ë¬¸ìëª… ì…ë ¥ : ");
             search = sc.next();
             System.out.println("=============== "+search+" ===============");
           
@@ -84,12 +84,12 @@ public class Myproduct {
         		con = DriverManager.getConnection(
         				"jdbc:mysql://localhost:3306/de-jdbc", "root", "qwer1234");
 
-                //3. sql ±¸¹®
+                //3. sql êµ¬ë¬¸
                 sql = " SELECT * FROM product WHERE customer = ? ";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, search);
 
-                //4. °á°úÃ³¸®
+                //4. ê²°ê³¼ì²˜ë¦¬
                 ResultSet rs = pst.executeQuery();
                 boolean isList = false;
                 while(rs.next()) {
@@ -100,19 +100,19 @@ public class Myproduct {
                     contents = rs.getString("contents");
                     price = rs.getInt("price");
 
-                    System.out.print("ÁÖ¹®ÀÚ¹øÈ£ : "+id+"\t");
-                    System.out.print("ÁÖ¹®ÀÚ¸í : "+customer+"\t");
-                    System.out.print("»óÇ°¸í : "+name+"\t");
-                    System.out.print("±¸¸ÅÀÏ : "+updated_at+"\t");
-                    System.out.print("°¡°İ : "+price+"\t");
-                    System.out.print("¸Ş¸ğ: " + contents);
+                    System.out.print("ì£¼ë¬¸ìë²ˆí˜¸ : "+id+"\t");
+                    System.out.print("ì£¼ë¬¸ìëª… : "+customer+"\t");
+                    System.out.print("ìƒí’ˆëª… : "+name+"\t");
+                    System.out.print("êµ¬ë§¤ì¼ : "+updated_at+"\t");
+                    System.out.print("ê°€ê²© : "+price+"\t");
+                    System.out.print("ë©”ëª¨: " + contents);
 
                     System.out.println();
                     isList = true;
 
                 }
                 if(isList==false) {
-                    System.out.println("°Ë»öµÈ ÁÖ¹®Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+                    System.out.println("ê²€ìƒ‰ëœ ì£¼ë¬¸ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
                 }
 
             } catch (Exception e) {
@@ -126,16 +126,16 @@ public class Myproduct {
                 }
             }
               
-        System.out.println(); break; // case 2 Á¾·á
+        System.out.println(); break; // case 2 ì¢…ë£Œ
         
-        // 3. ÁÖ¹®Ãë¼Ò(»èÁ¦)
+        // 3. ì£¼ë¬¸ì·¨ì†Œ(ì‚­ì œ)
         case 3 : 
-        	  System.out.println(menu+"¹ø ¼±ÅÃ");
+        	  System.out.println(menu+"ë²ˆ ì„ íƒ");
         	  try {
   
           		con = DriverManager.getConnection(
         				"jdbc:mysql://localhost:3306/de-jdbc", "root", "qwer1234");
-                System.out.print("»èÁ¦ÇÒ ÁÖ¹®¹øÈ£ : ");
+                System.out.print("ì‚­ì œí•  ì£¼ë¬¸ë²ˆí˜¸ : ");
                 id = sc.nextInt();
        
                 sql = " SELECT * FROM product WHERE id = ? ";
@@ -150,14 +150,14 @@ public class Myproduct {
                     updated_at = rs.getString("updated_at");
                     contents = rs.getString("contents");
                     price = rs.getInt("price");
-                    System.out.println("========= »èÁ¦´ë»ó : "+name+" ===============");
+                    System.out.println("========= ì‚­ì œëŒ€ìƒ : "+name+" ===============");
                     System.out.println();
-                    System.out.print("ÁÖ¹®ÀÚ¹øÈ£ : "+id+"\t");
-                    System.out.print("ÁÖ¹®ÀÚ¸í : "+customer+"\t");
-                    System.out.print("»óÇ°¸í : "+name+"\t");
-                    System.out.print("±¸¸ÅÀÏ : "+updated_at+"\t");
-                    System.out.print("°¡°İ : "+price+"\t");
-                    System.out.print("¸Ş¸ğ: " + contents);
+                    System.out.print("ì£¼ë¬¸ìë²ˆí˜¸ : "+id+"\t");
+                    System.out.print("ì£¼ë¬¸ìëª… : "+customer+"\t");
+                    System.out.print("ìƒí’ˆëª… : "+name+"\t");
+                    System.out.print("êµ¬ë§¤ì¼ : "+updated_at+"\t");
+                    System.out.print("ê°€ê²© : "+price+"\t");
+                    System.out.print("ë©”ëª¨: " + contents);
                     System.out.println();
                     System.out.println();
                     System.out.println("=============== ======= ===============");
@@ -166,7 +166,7 @@ public class Myproduct {
                 }
 
                 if(isList == false) {
-                    System.out.println("µî·ÏµÈ ´ë»óÀÌ ¾ø½À´Ï´Ù. ");
+                    System.out.println("ë“±ë¡ëœ ëŒ€ìƒì´ ì—†ìŠµë‹ˆë‹¤. ");
                 }
 
                 sql = " DELETE FROM product WHERE id = ? ";
@@ -176,9 +176,9 @@ public class Myproduct {
                 int cnt = pst.executeUpdate();
 
                 if(cnt > 0) {
-                    System.out.println(id +"¹ø ÁÖ¹®ÀÚ Á¤º¸ »èÁ¦ ");
+                    System.out.println(id +"ë²ˆ ì£¼ë¬¸ì ì •ë³´ ì‚­ì œ ");
                 } else {
-                    System.out.println(id + "¹ø ÁÖ¹®ÀÚ Á¤º¸ »èÁ¦ ½ÇÆĞ ");
+                    System.out.println(id + "ë²ˆ ì£¼ë¬¸ì ì •ë³´ ì‚­ì œ ì‹¤íŒ¨ ");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -191,19 +191,19 @@ public class Myproduct {
                 }
             }
           		
-        	System.out.println(); break; // case 3 Á¾·á
+        	System.out.println(); break; // case 3 ì¢…ë£Œ
 
-        // 4. Á¤º¸¼öÁ¤
+        // 4. ì •ë³´ìˆ˜ì •
         case 4 : 
-        	  System.out.println(menu+"¹ø ¼±ÅÃ");
+        	  System.out.println(menu+"ë²ˆ ì„ íƒ");
 
               try {
  
           		con = DriverManager.getConnection(
         				"jdbc:mysql://localhost:3306/de-jdbc", "root", "qwer1234");
-                   // Á¤º¸ º¯°æÇÒ ÁÖ¹®ÀÚ ºÒ·¯¿À±â
+                   // ì •ë³´ ë³€ê²½í•  ì£¼ë¬¸ì ë¶ˆëŸ¬ì˜¤ê¸°
 
-                  System.out.print("Á¤º¸º¯°æÇÒ ±¸¸ÅÀÚ È®ÀÎ : ");
+                  System.out.print("ì •ë³´ë³€ê²½í•  ì£¼ë¬¸ì •ë³´ í™•ì¸ : ");
                   customer = sc.next();
 
                   sql = " SELECT * FROM product WHERE customer LIKE ? ";
@@ -222,42 +222,42 @@ public class Myproduct {
                       price = rs.getInt("price");
                       System.out.println("=============== "+customer+" ===============");
                       System.out.println();
-                      System.out.print("ÁÖ¹®ÀÚ¹øÈ£ : "+id+"\t");
-                      System.out.print("ÁÖ¹®ÀÚ¸í : "+customer+"\t");
-                      System.out.print("»óÇ°¸í : "+name+"\t");
-                      System.out.print("±¸¸ÅÀÏ : "+updated_at+"\t");
-                      System.out.print("°¡°İ : "+price+"\t");
-                      System.out.print("¸Ş¸ğ: " + contents);
+                      System.out.print("ì£¼ë¬¸ìë²ˆí˜¸ : "+id+"\t");
+                      System.out.print("ì£¼ë¬¸ìëª… : "+customer+"\t");
+                      System.out.print("ìƒí’ˆëª… : "+name+"\t");
+                      System.out.print("êµ¬ë§¤ì¼ : "+updated_at+"\t");
+                      System.out.print("ê°€ê²© : "+price+"\t");
+                      System.out.print("ë©”ëª¨: " + contents);
                       System.out.println();
                       System.out.println();
                       System.out.println("=============== ======= ===============");
                       System.out.println();
                   }
 
-                  //¹» º¯°æÇÒ°ÇÁö ¹°¾îº¼²¨¾ß.
-                  System.out.print("º¯°æÇÏ½Ç ³»¿ë : ¼±ÅÃ [1]ÀÌ¸§, [2]»óÇ°¸í, [3]°¡°İ, [4]ÀüÃ¼º¯°æ :");
+                  // ë¬´ì—‡ì„ ë³€ê²½í• ì§€ ì„ íƒ
+                  System.out.print("ë³€ê²½í•˜ì‹¤ ë‚´ìš© : ì„ íƒ [1]ì´ë¦„, [2]ìƒí’ˆëª…, [3]ê°€ê²©, [4]ì „ì²´ë³€ê²½ :");
                   int sel = sc.nextInt();
                   if(sel == 1) {
-                      System.out.print("º¯°æÇÒ ÀÌ¸§ : ");
+                      System.out.print("ë³€ê²½í•  ì´ë¦„ : ");
                       customer = sc.next();
                   } else if(sel == 2) {
-                      System.out.print("º¯°æÇÒ »óÇ°¸í : ");
+                      System.out.print("ë³€ê²½í•  ìƒí’ˆëª… : ");
                       name = sc.next();
                   } else if(sel == 3) {
-                      System.out.print("º¯°æÇÒ °¡°İ : ");
+                      System.out.print("ë³€ê²½í•  ê°€ê²© : ");
                       price = sc.nextInt();
                   } else if(sel == 4) {
-                      System.out.print("º¯°æÇÒ ÀÌ¸§ : ");
+                      System.out.print("ë³€ê²½í•  ì´ë¦„ : ");
                       customer = sc.next();
-                      System.out.print("º¯°æÇÒ »óÇ°¸í : ");
+                      System.out.print("ë³€ê²½í•  ìƒí’ˆëª… : ");
                       name = sc.next();
-                      System.out.print("º¯°æÇÒ °¡°İ : ");
+                      System.out.print("ë³€ê²½í•  ê°€ê²© : ");
                       price = sc.nextInt();
                   }
 
-                  //3. sql ±¸¹® ÁØºñ °´Ã¼( PreparedStatement ) »ı¼º
-                  //studentSeq.nextval : ½ÃÄö½º
-                  //? : ¹ÙÀÎµå º¯¼ö
+                  //3. sql êµ¬ë¬¸ ì¤€ë¹„ ê°ì²´( PreparedStatement ) ìƒì„±
+                  //studentSeq.nextval : ì‹œí€€ìŠ¤
+                  //? : ë°”ì¸ë“œ ë³€ìˆ˜
 
                   stmt = con.createStatement();
                   sql = "UPDATE product SET";
@@ -269,20 +269,20 @@ public class Myproduct {
                   sql += " WHERE id = ? ";
                   pst = con.prepareStatement(sql);
 
-                  //4. ¹ÙÀÎµå º¯¼ö¸¦ Ã¤¿î´Ù.
+                  //4. ë°”ì¸ë“œ ë³€ìˆ˜ë¥¼ ì±„ìš´ë‹¤.
                   pst.setString(1, name);
                   pst.setString(2, updated_at);
                   pst.setString(3, contents);
                   pst.setInt(4, price);
                   pst.setString(5, customer);
                   pst.setInt(6, id);
-                  //5. sql¹® ½ÇÇàÇÏ¿© °á°ú Ã³¸®
-                  //executeUpdate : insert, delete, update ( Å×ÀÌºíÀÇ º¯È­°¡ »ı±æ¶§ »ç¿ëµÇ´Â ¸í·É )
+                  //5. sqlë¬¸ ì‹¤í–‰í•˜ì—¬ ê²°ê³¼ ì²˜ë¦¬
+                  //executeUpdate : insert, delete, update ( í…Œì´ë¸”ì˜ ë³€í™”ê°€ ìƒê¸¸ë•Œ ì‚¬ìš©ë˜ëŠ” ëª…ë ¹ )
                   int cnt = pst.executeUpdate();
                   if(cnt > 0) {
-                      System.out.println("Á¤º¸¼öÁ¤ ¼º°ø");
+                      System.out.println("ì •ë³´ìˆ˜ì • ì„±ê³µ");
                   } else {
-                      System.out.println("Á¤º¸¼öÁ¤ ½ÇÆĞ");
+                      System.out.println("ì •ë³´ìˆ˜ì • ì‹¤íŒ¨");
                   }
 
               //} catch (ClassNotFoundException e) {
@@ -296,21 +296,21 @@ public class Myproduct {
                       e.printStackTrace();
                   }
               }
-        System.out.println(); break; // case 4 Á¾·á
+        System.out.println(); break; // case 4 ì¢…ë£Œ
         
-        // 5. ÇÁ·Î±×·¥ Á¾·á
+        // 5. í”„ë¡œê·¸ë¨ ì¢…ë£Œ
         case 5 : 
-            System.out.println(menu+"¹ø ¼±ÅÃ");
+            System.out.println(menu+"ë²ˆ ì„ íƒ");
             System.out.println();
             break;
 
-        } // switch Á¾·á
+        } // switch ì¢…ë£Œ
         if(menu == 5) {
-            System.out.println("ÇÁ·Î±×·¥Á¾·á");
-            break; // case 5 Á¾·á
+            System.out.println("í”„ë¡œê·¸ë¨ì¢…ë£Œ");
+            break; // case 5 ì¢…ë£Œ
         }
 
-		 } // while¹® Á¾·á     		
+		 } // whileë¬¸ ì¢…ë£Œ     		
 		 sc.close();
 	} // main method end
 } // class end
