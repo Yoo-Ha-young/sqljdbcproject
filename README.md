@@ -1,6 +1,6 @@
 # Java jdbc project
 ### [주문정보 조회 및 수정 프로그램]
-* MySQL<br>
+## * MySQL<br>
 
 ![image](https://user-images.githubusercontent.com/116700717/209299641-371361c1-7e88-4b39-96ca-223ee2bbff4e.png)
 
@@ -9,7 +9,7 @@
 
 
 
-* Java 프로그램 실행 화면<br>
+## * Java 프로그램 실행 화면<br>
 1.주문정보입력 | 2.구매자조회 | 3.주문취소(삭제) | 4.정보수정 | 5.프로그램종료 <br>
 
 ![image](https://user-images.githubusercontent.com/116700717/209301112-bfe58056-cebf-4403-b5e4-b395d1c1dfc7.png)
